@@ -120,7 +120,7 @@ class VenueForm(Form):
         'website_link'
     )
 
-    seeking_talent = BooleanField( 'seeking_talent' )
+    seeking_talent = BooleanField( 'seeking_talent')
 
     seeking_description = StringField(
         'seeking_description'
@@ -191,7 +191,8 @@ class ArtistForm(Form):
     )
     phone = StringField(
         # TODO implement validation logic for phone 
-        'phone', validators=[DataRequired(), Regexp(r'^\d+$', message="Phone number must be digits only.")]
+
+        'phone', validators=[DataRequired(), Regexp(r'^\+?\d[\d\s\-]+\d$', message="Phone number must be digits only.")]
     )
     image_link = StringField(
         'image_link'
